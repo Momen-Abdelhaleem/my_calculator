@@ -79,7 +79,7 @@ class CalculatorView extends StatelessWidget {
                   crossAxisSpacing: screenSize.width / 30,
                   mainAxisSpacing: screenSize.height / 40,
                 ),
-                itemBuilder: (context, index) => calculatorButton(
+                itemBuilder: (context, index) => CalculatorButton(
                     color: buttons[index] == '.'
                         ? Colors.green
                         : buttons[index] == '='
