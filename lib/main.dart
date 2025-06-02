@@ -4,16 +4,10 @@ import 'package:my_calculator/screens/calculator_view.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => CalculatorProvider(),
-        ),
-      ],
-      child: CalculatorApp(),
-    ),
-  );
+  runApp(ChangeNotifierProvider(
+    create: (_) => CalculatorProvider(),
+    child: CalculatorApp(),
+  ));
 }
 
 class CalculatorApp extends StatelessWidget {

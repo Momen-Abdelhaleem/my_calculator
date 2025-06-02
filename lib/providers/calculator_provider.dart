@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class CalculatorProvider extends ChangeNotifier {
   // providerعشان ما حدش يعرف يعدلها برا ال  private هنعمل المتغبرات دي
+  //عشان يقبل الرقم او العلامات العشرية او العمليات الحسابية String  بعرف المتغيرات كلها ك
+  //try parse و بعد كدة بحول الارقام اثناء العملية لارقام بإستخدام
   String _number1 = '';
   String _operand = '';
   String _number2 = '';
@@ -24,10 +26,15 @@ class CalculatorProvider extends ChangeNotifier {
     if (value == '+' || value == '-' || value == 'x' || value == '÷') {
       if (_number1.isNotEmpty && _number2.isEmpty) {
         _operand = value;
+        //هنا بنشوف لو المستخدم دخل عملية حسابية
+        // بنشوف لو الرقم الاولاني فية قيمة و التاني فاضي بناخد الاولاني
       }
     } else {
       if (_operand.isEmpty) {
         _number1 += value;
+        // فاضية operand  لو المستخدم ما دخلش عملية و دخل رقم لو العملية
+        // number 1يبقى نحفظ الرقم في
+        // number 2غير كدة يبقى نحفظة في
       } else {
         _number2 += value;
       }
@@ -90,7 +97,7 @@ class CalculatorProvider extends ChangeNotifier {
         _result = (num1 * num2).toString();
         break;
       case '÷':
-        _result = num2 != 0 ? (num1 / num2).toString() : 'Expression Error';
+        _result = num2 != 0 ? (num1 / num2).toString() : 'Cannot divide by 0';
         break;
       default:
         return;

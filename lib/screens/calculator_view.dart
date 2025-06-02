@@ -72,9 +72,11 @@ class CalculatorView extends StatelessWidget {
           Expanded(
               flex: 2,
               child: GridView.builder(
+                //بتديني شكل الشبكة اللي زي نظام زراير الالة الحاسبة
                 itemCount: buttons.length,
                 padding: EdgeInsets.all(16),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //اللي بالعرض items  بتثبت عدد ال
                   crossAxisCount: 4,
                   crossAxisSpacing: screenSize.width / 30,
                   mainAxisSpacing: screenSize.height / 40,
